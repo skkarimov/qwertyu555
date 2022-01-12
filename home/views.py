@@ -9,10 +9,12 @@ def home(request):
     category = Category.objects.all()
     product_latest = Product.objects.all().order_by('?')
     phone = Phone.objects.all().order_by('?')
+    blog = Blog.objects.all()
     context = {
         'category':category,
         'product_latest':product_latest,
         'phone': phone,
+        'blog': blog,
     }
     return render(request, 'index.html', context)
 

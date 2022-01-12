@@ -306,86 +306,38 @@
 
 
 		<section class="this-month-blog new-block">
-			<div class="container-fluid no-gutter">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="title">
-							<p class="top-h">this month</p>
-							<h2>Our blog</h2>
-							<div class="btm-style"><span><img src="{% static 'images/btm-style.png' %}" alt="" class="img-responsive"></span></div>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="blog-slider1 owl-theme owl-carousel">
-							<div class="item">
-								<div class="blog-stl1">
-									<div class="img-holder">
-										<img src="{% static 'images/boy.jpg' %}" alt="" class="img-responsive" />
-										<div class="ovrl-block">
-											<h3>Donec leo metus placerat quis lorem sed ultricies bibendum metus.</h3>
-											<a href="blog_single.html" class="btn1 stl2">read more</a>
-										</div>
-										<ul class="blog-info-nav">
-			                                <li><a href="#"><i class="flaticon-profile"></i>Shamiyo</a></li>
-			                                <li><a href="#"><i class="flaticon-chat"></i>245 Coments</a></li>
-			                                <li><a href="#"><i class="flaticon-calendar"></i>2/04/2017</a></li>
-			                            </ul>	
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="blog-stl1">
-									<div class="img-holder">
-										<img src="{% static 'images/girl.jpg' %}" alt="" class="img-responsive" />
-										<div class="ovrl-block">
-											<h3>Donec leo metus placerat quis lorem sed ultricies bibendum metus.</h3>
-											<a href="blog_single.html" class="btn1 stl2">read more</a>
-										</div>
-										<ul class="blog-info-nav">
-			                                <li><a href="#"><i class="flaticon-profile"></i>Shamiyo</a></li>
-			                                <li><a href="#"><i class="flaticon-chat"></i>245 Coments</a></li>
-			                                <li><a href="#"><i class="flaticon-calendar"></i>2/04/2017</a></li>
-			                            </ul>	
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="blog-stl1">
-									<div class="img-holder">
-										<img src="{% static 'images/girl1.jpg' %}" alt="" class="img-responsive" />
-										<div class="ovrl-block">
-											<h3>Donec leo metus placerat quis lorem sed ultricies bibendum metus.</h3>
-											<a href="blog_single.html" class="btn1 stl2">read more</a>
-										</div>
-										<ul class="blog-info-nav">
-			                                <li><a href="#"><i class="flaticon-profile"></i>Shamiyo</a></li>
-			                                <li><a href="#"><i class="flaticon-chat"></i>245 Coments</a></li>
-			                                <li><a href="#"><i class="flaticon-calendar"></i>2/04/2017</a></li>
-			                            </ul>	
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="blog-stl1">
-									<div class="img-holder">
-										<img src="{% static 'images/girl2.jpg' %}" alt="" class="img-responsive" />
-										<div class="ovrl-block">
-											<h3>Donec leo metus placerat quis lorem sed ultricies bibendum metus.</h3>
-											<a href="blog_single.html" class="btn1 stl2">read more</a>
-										</div>
-										<ul class="blog-info-nav">
-			                                <li><a href="#"><i class="flaticon-profile"></i>Shamiyo</a></li>
-			                                <li><a href="#"><i class="flaticon-chat"></i>245 Coments</a></li>
-			                                <li><a href="#"><i class="flaticon-calendar"></i>2/04/2017</a></li>
-			                            </ul>	
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+      <div class="container-fluid no-gutter">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="title">
+              <p class="top-h">this month</p>
+              <h2>Our blog</h2>
+              <div class="btm-style"><span><img src="{% static 'images/btm-style.png' %}" alt="" class="img-responsive"></span></div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="blog-slider1 owl-theme owl-carousel">
+                {% for rs in blog %}
+              <div class="item">
+                <div class="blog-stl1">
+                  <div class="img-holder">
+                    <img src="{{ rs.image.url }}" alt="" class="img-responsive" />
+                    <div class="ovrl-block">
+                      <h3>{{ rs.title }}</h3>
+                      <a href="{% url 'blog'  %}" class="btn1 stl2">read more</a>
+                    </div>
+                    <ul class="blog-info-nav">
+                        <li><a href="#"><i class="flaticon-calendar"></i>2/04/2017</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 		<footer class="main-footer new-block">
 			<div class="container">
